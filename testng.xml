@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Vehicle Test Suite">
+    <test name="Truck Tests">
+        <classes>
+            <class name="com.TricentisTestCases.TruckTest"/>
+        </classes>
+    </test>
+    
+    <test name="Automobile Tests">
+        <classes>
+            <class name="com.TricentisTestCases.AutomobileTest"/>
+        </classes>
+    </test>
+    
+    <test name="Camper Tests">
+        <classes>
+            <class name="com.TricentisTestCases.CamperTest"/>
+        </classes>
+    </test>
+    
+    <test name="Motorcycle Tests">
+        <classes>
+            <class name="com.TricentisTestCases.MotorCycleTest"/>
+        </classes>
+    </test>
+</suite>
+

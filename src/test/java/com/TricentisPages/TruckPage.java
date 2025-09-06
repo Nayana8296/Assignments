@@ -25,8 +25,10 @@ public class TruckPage {
 			private final By DateOfManufacture = By.id("dateofmanufacture");
 			private final By NumberOfseats = By.id("numberofseats");
 			private final By FuelType = By.id("fuel");
+			private final By PayLoad = By.id("payload");
+			private final By Totalweight = By.id("totalweight");
 			private final By ListPrice = By.id("listprice");
-			private final By LicencePlate = By.id("lastname");
+			private final By LicensePlate = By.id("licenseplatenumber");
 			private final By AnnualMileage = By.id("annualmileage");
 			//enterInsurantdata
 			private final By Next = By.id("nextenterinsurantdata");
@@ -46,13 +48,15 @@ public class TruckPage {
 			//enterproductdata
 			private final By Startdate = By.id("startdate");
 			private final By InsuranceSum = By.id("insurancesum");
-			private final By MeritRating = By.id("meritrating");
 			private final By DamageInsurance = By.id("damageinsurance");
 			private final By OptionalProduct = By.id("EuroProtection");
-			private final By CourtesyCar = By.id("courtesycar");
+		
+			
+			//selectpriceoption
 			private final By Next5 = By.id("nextselectpriceoption");
-			private final By Button = By.id("selectgold");
-			private final By Next2 = By.id("nextsendquote");
+			private final By GoldButton = By.id("selectgold");
+			private final By Next21 = By.id("nextsendquote");
+			//Email
 			private final By Email = By.id("email");
 			private final By Phone =By.name("Phone");
 			private final By Username =By.id("username");
@@ -72,14 +76,16 @@ public class TruckPage {
 			//Actions
 
 			//Actions
-			 public void enterVehicledata(String make1,String engine1,String date1,String seats1,String fuel1,String listprice1,String licenseplate1,String mileage1) {
+			 public void enterVehicledata(String make1,String engine1,String date1,String seats1,String fuel1,String payload,String totalweight,String listprice,String licenseplate,String mileage1) {
 				    selectMakeTypeByText(make1);
 				    setEnginePerformance(engine1);
 				    setDateOfManufacture(date1);
 				    setNumberOfseats(Integer.parseInt(seats1));
 				    setFuelType(fuel1);
-				    setListPrice(listprice1);
-				    setLicencePlate(licenseplate1);
+				    setPayLoad(payload);
+				    setTotalWeight(totalweight);
+				    setListPrice(listprice);
+				    setLicensePlate(licenseplate);
 				    setAnnualMileage(mileage1);
 				    
 					}
@@ -108,13 +114,11 @@ public class TruckPage {
 				    	selectHobby(hobbies);
 				    	driver.findElement(WebSite).sendKeys(website);
 				    }			  
-			    public void enterProductdata(String startdate1,String insurancesum1,String meritrating1,String damageinsurance1,String optionalproduct1,String courtesycar1) {
+			    public void enterProductdata(String startdate1,String insurancesum1,String damageinsurance1,String optionalproduct1) {
 			    	driver.findElement(Startdate).sendKeys(startdate1);
 			    	driver.findElement(InsuranceSum).sendKeys(insurancesum1);
-			    	driver.findElement(MeritRating).sendKeys(meritrating1);
 			    	driver.findElement(DamageInsurance).sendKeys(damageinsurance1);
 			    	driver.findElement(OptionalProduct).sendKeys(optionalproduct1);
-			    	driver.findElement(CourtesyCar).sendKeys(courtesycar1);
 			    	  }
 			    public void enterSendquote(String email,String phone,String username,String password,String confirmPassword,String comments) {
 			    	driver.findElement(Email).sendKeys(email);
@@ -154,11 +158,17 @@ public class TruckPage {
 				Select select = new Select(DropDownFuelType);
 				select.selectByVisibleText(FuelTypeName);
 			}
-			public void setListPrice(String price) {
-				driver.findElement(ListPrice).sendKeys(price);
+			public void setPayLoad (String payload) {
+				driver.findElement(PayLoad).sendKeys(payload);
 			}
-			public void setLicencePlate(String Plate) {
-				driver.findElement(LicencePlate).sendKeys(Plate);
+			public void setTotalWeight(String TotalWeight) {
+				driver.findElement(Totalweight).sendKeys(TotalWeight);
+			}
+			public void setListPrice(String listprice) {
+				driver.findElement(ListPrice).sendKeys(listprice);
+			}   
+			public void setLicensePlate(String licenseplate) {
+				driver.findElement(LicensePlate).sendKeys(licenseplate);
 			}
 			public void setAnnualMileage(String Mileage) {
 				driver.findElement(AnnualMileage).sendKeys(Mileage);
@@ -180,7 +190,6 @@ public class TruckPage {
 			public void clickGender (String gender) throws InterruptedException {
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				
-				Thread.sleep(1000);
 
 		        JavascriptExecutor js = (JavascriptExecutor) driver;
 				if(gender.equalsIgnoreCase("male")) {
@@ -244,17 +253,17 @@ public class TruckPage {
 			select.selectByValue(insurancesum);
 			}
 					
-			public void setMeritRating (String rating) {
+			/*public void setMeritRating (String rating) {
 				WebElement DropDown1 = driver.findElement(MeritRating);
 				Select select = new Select(DropDown1);
 				select.selectByVisibleText(rating);
-			}
-			public void setDamageInsurance (String damageinsurance) {
+			}*/
+			public void setDamageInsurance (String damageinsurance1) {
 				WebElement DropDn = driver.findElement(DamageInsurance);
 				Select select = new Select(DropDn);
-				select.selectByVisibleText(damageinsurance);
+				select.selectByVisibleText(damageinsurance1);
 			}
-			public void selectOptionalProduct(String Optionalproduct ) {
+			public void selectOptionalProduct(String optionalproduct1 ) {
 				JavascriptExecutor js = (JavascriptExecutor)driver;
 				
 				try {
@@ -262,38 +271,39 @@ public class TruckPage {
 				js.executeScript("arguments[0].click();", element1);
 			}
 				catch(NoSuchElementException e) {
-				 throw new IllegalArgumentException("InvalidOptions:"+Optionalproduct);
+				 throw new IllegalArgumentException("InvalidOptions:"+optionalproduct1);
 			}
 		}
-			public void setCourtesyCar(String courtesycar) {
+			/*public void setCourtesyCar(String courtesycar) {
 				WebElement DropDown2 = driver.findElement(CourtesyCar);
 				Select select = new Select(DropDown2);
 				select.selectByVisibleText(courtesycar);
-			}
+			}*/
 			public void ClickNext5 () {
 				driver.findElement(Next5).click();
 			}
-			 public void selectGoldButton (String gold) {
+			 public void selectGoldButton (String plan) {
 			    	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			    	JavascriptExecutor js =  (JavascriptExecutor)driver;
 			    	
-			    	String PriceId  = gold.toLowerCase();
+			    	String planNormalized  = plan.toLowerCase();
 			    	
-			    	List<String>validPrice = Arrays.asList("silver","gold","platinum","ultimate");
+			    	List<String>validPrice = Arrays.asList("Silver","gold","Platinum","Ultimate");
 			    	
-			    	if(validPrice.contains(PriceId)) {
+			    	if(validPrice.contains(planNormalized)) {
 			    		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("selectgold")));
 			    		js.executeScript("arguments[0].click();", element);
 			    	}
 			    	else {
-			    		throw new IllegalArgumentException("Invalid Option:"+gold);
+			    		throw new IllegalArgumentException("Invalid Option:"+plan);
 			    	}
 			    	
 			    }
-			 public void ClickNext2 () {
+			 public void ClickNext21 () {
 					WebDriverWait  wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-					WebElement next2Button = wait.until(ExpectedConditions.elementToBeClickable(Next2));
+					WebElement next2Button = wait.until(ExpectedConditions.elementToBeClickable(Next21));
 					next2Button.click();
+				// driver.findElement(Next2).click();
 				}
 			public void setEmail(String email) {
 				driver.findElement(Email).sendKeys(email);

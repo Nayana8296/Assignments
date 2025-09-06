@@ -30,10 +30,6 @@ public class AutomobileTest extends BaseTest {
 		autoPage.ClickSend();
 		autoPage.ClickOk();
 		autoPage.ClickTruckInsurance();
-		//autoPage.ClickButton();
-		//autoPage.ClickNext2();l
-		//autoPage.ClickOk();
-		//autoPage.ClickTruckInsurance();*/
 		
          		
 	

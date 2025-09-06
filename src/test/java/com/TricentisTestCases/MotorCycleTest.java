@@ -1,9 +1,6 @@
 package com.TricentisTestCases;
-
 import java.time.Duration;
-
 import org.testng.annotations.Test;
-
 import com.TricentisPages.MotorCyclePage;
 
 public class MotorCycleTest extends BaseTest {

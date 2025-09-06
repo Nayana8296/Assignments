@@ -11,19 +11,14 @@ public class MotorCycleTest extends BaseTest {
 	  driver.manage().window().maximize();
 	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	  
-	  
-	  
-            MotorCyclePage motorcycle = new MotorCyclePage(driver);
+	        MotorCyclePage motorcycle = new MotorCyclePage(driver);
             motorcycle.ClickMotorcycle();
             
             motorcycle.entervehicledata("Skoda","Scooter","125","885","12/05/2024","2","45680","785");
             motorcycle.ClickNext();
-            
             motorcycle.enterInsurantdata("Nsd","sdmd","12/08/1998","female","xckmc","Bahamas","54785","kdfjfv",
             		                     "Public Official","speeding","https://sampleapp.tricentis.com/101/app.php");
             motorcycle.ClickNext1();     
-            
-            
             motorcycle.enterProductdata("12/08/2025","5.000.000,00","Full Coverage","Legal Defense Insurance");
             motorcycle.ClickNext51();
             motorcycle.enterselectPriceOption("platinum");

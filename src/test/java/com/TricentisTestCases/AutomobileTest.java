@@ -1,21 +1,13 @@
 package com.TricentisTestCases;
-
 import org.testng.annotations.Test;
-
 import com.TricentisPages.AutomobilePage;
 
 public class AutomobileTest extends BaseTest {
-	
-
 	@Test
 	public void fillAutomobileformTest() throws InterruptedException {
 		driver.get("http://sampleapp.tricentis.com/101/");
-		
-		
-		
 		AutomobilePage autoPage = new AutomobilePage(driver);
 		autoPage.ClickAutomobile();
-		
 		autoPage.entervehicledata("Audi","545","12/05/2024","3","Petrol","5456","455","245");
 		autoPage.ClickNext();
 		autoPage.enterInsurantdata("Nayana","Kenchagundi","12/06/2003","female","NekarNagar","Bahamas",

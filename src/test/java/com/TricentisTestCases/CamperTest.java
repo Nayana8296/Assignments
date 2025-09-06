@@ -1,23 +1,18 @@
 package com.TricentisTestCases;
-
 import java.time.Duration;
-
 import org.testng.annotations.Test;
-
 import com.TricentisPages.CamperPage;
 
 public class CamperTest extends BaseTest{
   @Test
   public void fillCamperTestform() throws InterruptedException{
 	  
-	  
 	  CamperPage camperpage = new CamperPage(driver);
 	  driver.get("http://sampleapp.tricentis.com/101/");
 	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	  driver.manage().window().maximize();
 	  
-	  
-	  camperpage.ClickCamperPage();
+	 camperpage.ClickCamperPage();
 	  camperpage.entervehicledata("Honda","458","12/08/2002","9","yes","Diesel","456","758","4598","dhsabdj","487");
 	  camperpage.ClickNext();
 	  camperpage.enterInsurantdata("kasjw","ajsKD","05/25/2005","male","hjajs","Aruba","785632",

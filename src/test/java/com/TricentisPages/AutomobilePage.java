@@ -188,8 +188,7 @@ public class AutomobilePage {
 
 	public void clickGender (String gender) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-		Thread.sleep(1000);
+
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
 		if(gender.equalsIgnoreCase("male")) {
@@ -288,7 +287,7 @@ public class AutomobilePage {
     	
     	String PriceId  = silver.toLowerCase();
     	
-    	List<String>validPrice = Arrays.asList("silver","Gold","Platinum","Ultimate");
+    	List<String>validPrice = Arrays.asList("silver","gold","platinum","ultimate");
     	
     	if(validPrice.contains(PriceId)) {
     		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("selectsilver")));

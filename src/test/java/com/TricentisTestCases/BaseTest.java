@@ -23,13 +23,9 @@ public class BaseTest {
         System.out.println("Initializing WebDriver and ExtentReports...");
         WebDriverManager.chromedriver().setup();
        
-       
-
-
         // Set driver path if not using WebDriverManager
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Downloads\\chromedriver-win64 (2)\\chromedriver-win64\\chromedriver.exe");
-
-
+     
         driver = new ChromeDriver();  // Make sure chromedriver is compatible with your browser
         extent = ExtentReportManager.getExtentReports();
         test = ExtentReportManager.createTest(this.getClass().getSimpleName());
